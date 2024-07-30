@@ -1,6 +1,13 @@
 :root {
     --main-font-family: "Poppins", sans-serif;
     --main-font-color: #F8F8F8;
+    --white-color: #FFFFFF;
+    --grey-color: #F6F7FB;
+    --swipe-like-background-color: #DBFFF4;
+    --swipe-like-boxshadow-color: #CCF1E6;
+    --swipe-nope-background-color: #FFE7EF;
+    --swipe-nope-boxshadow-color: #EDD9DF;
+    --black-color: #000000;
 }
 
 *,
@@ -33,11 +40,14 @@ body {
 .container {
     max-width: 550px;
     min-width: 350px;
-    /* min-height: 600px; */
-    /* min-height: 90vh; */
+    min-height: 900px;
     margin: 0 auto;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F6F7FB 100%);
+    background: linear-gradient(180deg, var(--white-color) 0%, var(--grey-color) 100%);
     padding: 0.5em;
+}
+
+input, textarea {
+    line-height: 1.5;
 }
 
 /* Typography styles - Start */
@@ -60,9 +70,10 @@ body {
     padding: 1.25em;
 }
 
-.app-icons {
-    width: 45px;
-    height: 45px;
+.app-icons,
+.liked-profile-avatar {
+    width: 50px;
+    height: 50px;
 }
 
 .app-logo {
@@ -75,7 +86,8 @@ body {
     cursor: pointer;
 }
 
-.user-avatar {
+.user-avatar,
+.liked-profile-avatar {
     border-radius: 50%;
 }
 
@@ -98,6 +110,7 @@ body {
     left: 12;
 }
 
+/* Displayed when the dog has been 'swiped' */
 .dog-profile-badge {
     display: none;
     width: 172px;
@@ -105,7 +118,7 @@ body {
     position: absolute;
     top: 40;
     left: 20;
-    transform: rotate(-25deg);;
+    transform: rotate(-25deg);
 }
 
 .swipe-button-container {
@@ -114,11 +127,10 @@ body {
 }
 
 .swipe-btn {
-    background-color: #FFFFFF;
-    border-radius: 100%;
+    background-color: var(--white-color);
+    border-radius: 50%;
     border: 0;
     padding: 1.5em;
-
 }
 
 /* For a space between the swipe buttons. Don't want it on both as that
@@ -128,16 +140,20 @@ body {
 }
 
 .btn-heart:hover,
-.btn-heart:active {
-    box-shadow: 0px 10px 20px 0px #CCF1E6;
-    background-color: #DBFFF4;
+.btn-heart:active,
+.btn-heart:focus {
+    box-shadow: 0px 10px 20px 0px var(--swipe-like-boxshadow-color);
+    background-color: var(--swipe-like-background-color);
+    outline: 0;
 
 }
 
 .btn-cross:hover,
-.btn-cross:active {
-    box-shadow: 0px 10px 20px 0px #EDD9DF;
-    background-color: #FFE7EF;
+.btn-cross:active,
+.btn-cross:focus {
+    box-shadow: 0px 10px 20px 0px var(--swipe-nope-boxshadow-color);
+    background-color: var(--swipe-nope-background-color);
+    outline: 0;
 }
 
 .cross-icon,
@@ -149,7 +165,7 @@ body {
 /* Main app styles - End */
 
 /* Profile update styling - Start */
-
+/* Blur the main frame when the modal is open */
 .blur-background {
     filter: blur(5px)
 }
@@ -163,13 +179,13 @@ body {
     margin: 0 auto;
     max-width: 500px;
     height: fit-content;
-    background-color: #F6F7FB;
+    background-color: var(--grey-color);
     border-radius: 0.5em;
     text-align: center;
 }
 
 .user-profile-header {
-    color: #000000;
+    color: var(--black-color);
     margin-top: 0.5em;
     margin-left: 1em;
 }
@@ -194,10 +210,12 @@ body {
     border-radius: 0.5em;
 }
 
-.user-profile-form button {
+.save-profile-btn {
     background-color: #00D894;
-    color: #ffffff;
-    padding: 0.75em;
+    color: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 1em;
     border-radius: 0.5em;
     border: 0;
 }
@@ -210,20 +228,15 @@ body {
     display: none;
     flex-direction: column;
     gap: 20px;
-    color: black;
+    color: var(--black-color);
     margin-left: 1em;
+    margin-top: 1em;
 }
 
 .liked-profile-header {
     display:flex;
     align-items: center;
     gap: 20px;
-}
-
-.liked-profile-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
 }
 
 /* Liked profiles styles - End */

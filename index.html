@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <header class="header-container">
+                <h1 class="sr-only">Tindog application</h1>
+                <img class="app-icons user-avatar" id="profile-btn" src="./images/dog-shenanigans.png" alt="Profile icon">
+                <img class="app-logo" id="logo-btn" src="./images/logo.png" alt="Tindog logo of a paw">
+                <img class="app-icons chat-icon" id="chat-btn" src="./images/icon-chat.png" alt="Chat logo">
+            </header>
+            <main id="main">
+                <section class="dogs-container" id="dogs">
+                    <!-- Rendered from JS -->
+                </section>
+                <section class="swipe-button-container">
+                  <button type="button" id="btn-dislike" class="swipe-btn btn-cross"><img class="cross-icon" src="./images/icon-cross.png"></button>
+                  <button type="button" id="btn-like" class="swipe-btn btn-heart"><img class="heart-icon" src="./images/icon-heart.png"></button>
+                </section>
+            </main>
+            <div class="user-profile-container" id="user-profile-modal">
+                <h2 class="user-profile-header">Your details</h2>
+                <form id="user-profile-form" class="user-profile-form">
+                    <img class="user-profile-avatar" src="./images/dog-shenanigans.png" alt="Avatar of shenanigans">
+                    <input type="input" name="name" id="name" placeholder="Enter your name" required aria-label="Enter your name">
+                    <input type="tel" name="age" id="age" inputmode="numeric" pattern="[0-9]" placeholder="Enter your age" maxlength="99" required aria-label="Enter your age">
+                    <textarea name="bio" id="bio" placeholder="Enter your bio" required aria-label="Enter your bio" rows="6"></textarea>
+                    <button class="save-profile" id="save-btn">Save details</button>
+                </form>
+            </div>
+            <div class="liked-profiles-container" id="liked-profiles">
+                <!-- Rendered in JS -->
+            </div>
+        </div>
+        <script src="/index.js" type="module"></script>
+    </body>
+</html>

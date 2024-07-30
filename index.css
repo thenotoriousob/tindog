@@ -237,6 +237,8 @@ input, textarea {
     display:flex;
     align-items: center;
     gap: 20px;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--black-color);
 }
 
 /* Liked profiles styles - End */

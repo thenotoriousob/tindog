@@ -8,7 +8,6 @@ const profileModal = document.getElementById("user-profile-modal");
 const profileForm = document.getElementById("user-profile-form");
 const mainEl = document.getElementById("main");
 const likedProfilesEl = document.getElementById("liked-profiles");
-const likeBtn = document.getElementById("btn-like");
 
 let currentDogIndex = 0;
 let currentDog = new Dog(dogs[currentDogIndex].name,

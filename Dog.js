@@ -33,7 +33,8 @@ class Dog {
         const { name, avatar, age, bio } = this;
 
         return `
-            <img class="dog-profile-image" src="./${avatar}">
+            <!-- Stop cumulative layout shift - actual ratio is applied in the css after load -->
+            <img class="dog-profile-image" width="500" height="700" src="./${avatar}">
             <div class="dog-profile-details">
                 <p class="dog-profile-name">${name}, ${age}</p>
                 <p class="dog-profile-bio">${bio}</p>

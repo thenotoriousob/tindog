@@ -8,6 +8,7 @@ const profileModal = document.getElementById("user-profile-modal");
 const profileForm = document.getElementById("user-profile-form");
 const mainEl = document.getElementById("main");
 const likedProfilesEl = document.getElementById("liked-profiles");
+const likeBtn = document.getElementById("btn-like");
 
 let currentDogIndex = 0;
 let currentDog = new Dog(dogs[currentDogIndex].name,
@@ -60,17 +61,16 @@ function handleSwipedClick(swiped) {
 
     currentDog.setHasBeenSwiped();
     currentDog.setHasBeenLiked(liked);
-
+    /* Keep track of the dogs for the chat page */
     dogProfiles.push(currentDog);
 
     getNewDog();
-}
+};
 
 function handleLogoClick() {
 
     /* If the logo is clicked and we are not at the end of the
     array of dogs then display the current dog, otherwise reset game */
-
     if (currentDogIndex === dogs.length) {
         // Reset gane
         dogProfiles.length = 0;
@@ -81,8 +81,8 @@ function handleLogoClick() {
     else {
         // Display current dog
         renderDogs(currentDog);
-    }
-}
+    };
+};
 
 function openOrCloseModal(display) {
 
@@ -90,7 +90,7 @@ function openOrCloseModal(display) {
 
     mainEl.classList.toggle("blur-background");
 
-}
+};
 
 function handleProfileSubmit() {
 
@@ -109,13 +109,13 @@ function handleProfileSubmit() {
 
     renderUser(user.name, user.age, user.bio);
 
-}
+};
 
 function renderDogs(dog) {
     document.getElementById("dogs").innerHTML = dog.getDogHtml();
 
     showMainFrame(true);
-}
+};
 
 function renderLikedDogs() {
 
@@ -139,10 +139,10 @@ function renderLikedDogs() {
     }
     else {
         likedProfilesEl.innerHTML += `
-          <p>You haven't liked any profiles at this moment</p>
+          <p>You haven't liked any profiles at this moment.</p>
         `
-    }
-}
+    };
+};
 
 function showMainFrame(mainFrame) {
 
@@ -154,8 +154,8 @@ function showMainFrame(mainFrame) {
     } else {
         likedProfilesEl.style.display = "flex";
         mainEl.style.display = "none";
-    }
-}
+    };
+};
 
 function getNewDog() {
 
@@ -170,22 +170,22 @@ function getNewDog() {
             currentDog = new Dog(dogs[currentDogIndex].name,
                                   dogs[currentDogIndex].avatar,
                                   dogs[currentDogIndex].age,
-                                  dogs[currentDogIndex].bio);;
+                                  dogs[currentDogIndex].bio);
 
             renderDogs(currentDog);
 
-            showMainFrame(true)
+            showMainFrame(true);
         }
 
-    },1000);
+    },500);
 
-}
+};
 
 function renderUser(name, age, bio) {
     document.getElementById("name").value = name;
     document.getElementById("age").value = age;
     document.getElementById("bio").value = bio;
-}
+};
 
 renderDogs(currentDog);
 

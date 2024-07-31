@@ -8,6 +8,8 @@
     --swipe-nope-background-color: #FFE7EF;
     --swipe-nope-boxshadow-color: #EDD9DF;
     --black-color: #000000;
+    --profile-input-border-color: #B2B3BA;
+    --save-btn-background-color: #00D894;
 }
 
 *,
@@ -101,13 +103,14 @@ input, textarea {
 
 .dog-profile-image {
     width: 100%;
+    aspect-ratio: auto 530 / 750;
     border-radius: 1em;
 }
 
 .dog-profile-details {
     position: absolute;
-    bottom: 30;
-    left: 12;
+    bottom: 30px;
+    left: 12px;
 }
 
 /* Displayed when the dog has been 'swiped' */
@@ -116,8 +119,8 @@ input, textarea {
     width: 172px;
     height: 90px;
     position: absolute;
-    top: 40;
-    left: 20;
+    top: 40px;
+    left: 20px;
     transform: rotate(-25deg);
 }
 
@@ -173,7 +176,7 @@ input, textarea {
 .user-profile-container {
     display: none;
     position: fixed;
-    top: 85;
+    top: 85px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -182,6 +185,7 @@ input, textarea {
     background-color: var(--grey-color);
     border-radius: 0.5em;
     text-align: center;
+    box-shadow: 1px 1px 5px black;
 }
 
 .user-profile-header {
@@ -208,10 +212,11 @@ input, textarea {
     padding: 0.75em;
     margin-bottom: 0.5em;
     border-radius: 0.5em;
+    border: 1px solid var(-profile-input-border-color);
 }
 
 .save-profile-btn {
-    background-color: #00D894;
+    background-color: var(--save-btn-background-color);
     color: inherit;
     font-weight: 700;
     letter-spacing: 1px;

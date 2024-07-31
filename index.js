@@ -3,7 +3,7 @@ import { dogs } from "./data.js";
 import Dog from "./Dog.js";
 
 const dogProfiles = [];
-const user = new Dog("Shenanigans", "", 4, "Shenanigans by name, shenanigans by nature");
+const user = new Dog("Shenanigans", "images/dog-shenanigans.png", 4, "Shenanigans by name, shenanigans by nature");
 const profileModal = document.getElementById("user-profile-modal");
 const profileForm = document.getElementById("user-profile-form");
 const mainEl = document.getElementById("main");
@@ -97,6 +97,7 @@ function handleProfileSubmit() {
     const name = profileFormData.get('name');
     const age = profileFormData.get('age');
     const bio = profileFormData.get('bio');
+    const avatar = profileFormData.get('avatar-loc');
 
     profileModal.style.display = "";
 
@@ -105,8 +106,11 @@ function handleProfileSubmit() {
     user.setName(name);
     user.setAge(age);
     user.setBio(bio);
+    user.setAvatar(avatar)
 
-    renderUser(user.name, user.age, user.bio);
+    renderUser(user.name, user.age, user.bio, user.avatar);
+
+    openOrCloseModal("none");
 
 };
 
@@ -180,12 +184,17 @@ function getNewDog() {
 
 };
 
-function renderUser(name, age, bio) {
+function renderUser(name, age, bio, avatar) {
+
     document.getElementById("name").value = name;
     document.getElementById("age").value = age;
     document.getElementById("bio").value = bio;
+    document.getElementById("bio").value = bio;
+    document.getElementById("avatar-loc").value = avatar;
+    document.getElementById("avatar").src = avatar;
+    document.getElementById("profile-btn").src = avatar;
 };
 
 renderDogs(currentDog);
 
-renderUser(user.name, user.age, user.bio);
+renderUser(user.name, user.age, user.bio, user.avatar);

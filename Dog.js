@@ -13,6 +13,10 @@ class Dog {
         this.name = name;
     }
 
+    setAvatar(avatar) {
+        this.avatar = avatar;
+    }
+
     setAge(age) {
         this.age = age;
     }
@@ -25,8 +29,8 @@ class Dog {
         this.hasBeenSwiped = true;
     }
 
-    setHasBeenLiked(liked) {
-        this.hasBeenLiked = liked;
+    setHasBeenLiked(isLiked) {
+        this.hasBeenLiked = isLiked;
     }
 
     getDogHtml() {

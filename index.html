@@ -13,7 +13,7 @@
         <div class="container">
             <header class="header-container">
                 <h1 class="sr-only">Tindog application</h1>
-                <img class="app-icons user-avatar" id="profile-btn" src="./images/dog-shenanigans.png" alt="Profile icon">
+                <img class="app-icons user-avatar" id="profile-btn" src="" alt="Profile icon">
                 <img class="app-logo" id="logo-btn" src="./images/logo.png" alt="Tindog logo of a paw">
                 <img class="app-icons chat-icon" id="chat-btn" src="./images/icon-chat.png" alt="Chat logo">
             </header>
@@ -31,10 +31,15 @@
             <div class="user-profile-container" id="user-profile-modal">
                 <h2 class="user-profile-header">Your details</h2>
                 <form id="user-profile-form" class="user-profile-form">
-                    <img class="user-profile-avatar" src="./images/dog-shenanigans.png" alt="Avatar of shenanigans">
+                    <img class="user-profile-avatar" id="avatar" src="" alt="Avatar of shenanigans">
+                    <label class="profile-labels" for="name">Name</label>
                     <input type="input" name="name" id="name" placeholder="Enter your name" required aria-label="Enter your name">
-                    <input type="tel" name="age" id="age" inputmode="numeric" pattern="[0-9]" placeholder="Enter your age" maxlength="99" required aria-label="Enter your age">
-                    <textarea name="bio" id="bio" placeholder="Enter your bio" required aria-label="Enter your bio" rows="6"></textarea>
+                    <label class="profile-labels" for="avatar-loc">Avatar location</label>
+                    <input type="input" name="avatar-loc" id="avatar-loc" placeholder="Enter the avatar location" required aria-label="Enter the avatar location">
+                    <label class="profile-labels" for="age">Age</label>
+                    <input type="tel" name="age" id="age" inputmode="numeric" pattern="[0-9]{1-2}" placeholder="Enter your age" maxlength="99" required aria-label="Enter your age">
+                    <label class="profile-labels" for="bio">Bio</label>
+                    <textarea name="bio" id="bio" placeholder="Enter your bio" required aria-label="Enter your bio" rows="4"></textarea>
                     <button class="save-profile-btn" id="save-btn">Save details</button>
                 </form>
             </div>

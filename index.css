@@ -43,7 +43,7 @@ body {
     max-width: 550px;
     min-width: 350px;
     min-height: 900px;
-    margin: 0 auto;
+    margin: 0 auto 1.5em;
     background: linear-gradient(180deg, var(--white-color) 0%, var(--grey-color) 100%);
     padding: 0.5em;
 }

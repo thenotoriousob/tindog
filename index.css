@@ -174,13 +174,12 @@ input, textarea {
 }
 
 .user-profile-container {
-    display: none;
     position: fixed;
-    top: 85px;
+    top: 30px;
     left: 0;
     right: 0;
     margin: 0 auto;
-    max-width: 500px;
+    min-width: 500px;
     height: fit-content;
     background-color: var(--grey-color);
     border-radius: 0.5em;

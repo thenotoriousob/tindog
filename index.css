@@ -53,6 +53,15 @@ input, textarea {
     line-height: 1.5;
 }
 
+.swipe-btn,
+.modal-close-btn:hover,
+.modal-close-btn:active,
+.app-icons,
+.app-logo,
+.save-profile-btn {
+    cursor: pointer;
+}
+
 /* Typography styles - Start */
 .dog-profile-name {
     font-size: 2em;
@@ -82,11 +91,6 @@ input, textarea {
 .app-logo {
     width: 84px;
     height: 45px;
-}
-
-.app-icons,
-.app-logo {
-    cursor: pointer;
 }
 
 .user-avatar,
@@ -247,11 +251,6 @@ input, textarea {
   font-size: 22px;
   font-weight: bold;
   color: red;
-}
-
-.modal-close-btn:hover,
-.modal-close-btn:active{
-    cursor: pointer;
 }
 
 /* Profile update styling - End */

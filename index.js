@@ -130,7 +130,7 @@ function renderLikedDogs() {
         likedProfiles.filter(profile => {
             likedProfilesEl.innerHTML += `
             <div class="liked-profile-header">
-                <img src="./images/${profile.avatar}" class="liked-profile-avatar"
+                <img src="${profile.avatar}" class="liked-profile-avatar"
                   onerror="this.src='./images/blank-profile.png'">
                 <p>${profile.name}</p>
             </div>

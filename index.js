@@ -2,12 +2,12 @@
 import { dogs } from "./data.js";
 import Dog from "./Dog.js";
 
-const dogProfiles = [];
-const user = new Dog("Shenanigans", "images/dog-shenanigans.png", 4, "Shenanigans by name, shenanigans by nature");
 const profileModal = document.querySelector("dialog");
 const profileForm = document.getElementById("user-profile-form");
 const mainEl = document.getElementById("main");
 const likedProfilesEl = document.getElementById("liked-profiles");
+const dogProfiles = [];
+const userProfile = new Dog("Shenanigans", "dog-shenanigans.png", 4, "Shenanigans by name, shenanigans by nature");
 
 let currentDogIndex = 0;
 let currentDog = new Dog(dogs[currentDogIndex].name,
@@ -30,7 +30,10 @@ document.addEventListener("click", (e) => {
         renderLikedDogs();
     }
     else if(e.target.id === "profile-btn") {
-        openOrCloseModal("block");
+        openOrCloseModal(true);
+    }
+    else if(e.target.id === "modal-close-btn") {
+        openOrCloseModal(false);
     }
 
 });
@@ -41,15 +44,15 @@ profileForm.addEventListener("submit", (e) => {
     handleProfileSubmit();
 });
 
-function handleSwipedClick(swiped) {
+function handleSwipedClick(isSwiped) {
 
-    const swipedEl = document.getElementById(swiped);
-    const liked = swiped === "liked";
+    const swipedEl = document.getElementById(isSwiped);
+    const isLiked = isSwiped === "liked";
 
     swipedEl.style.display = "inline";
 
     currentDog.setHasBeenSwiped();
-    currentDog.setHasBeenLiked(liked);
+    currentDog.setHasBeenLiked(isLiked);
     /* Keep track of the dogs for the chat page */
     dogProfiles.push(currentDog);
 
@@ -73,14 +76,13 @@ function handleLogoClick() {
     };
 };
 
-function openOrCloseModal(display) {
+function openOrCloseModal(openModal) {
 
-    // profileModal.style.display = display;
-
-    if (display === "none") {
-        profileModal.close();
-    } else {
+    if (openModal) {
         profileModal.showModal();
+        document.getElementById("name").focus();
+    } else {
+        profileModal.close();
     }
 
     mainEl.classList.toggle("blur-background");
@@ -95,18 +97,16 @@ function handleProfileSubmit() {
     const bio = profileFormData.get('bio');
     const avatar = profileFormData.get('avatar-loc');
 
-    // profileModal.style.display = "";
-
     profileForm.reset();
 
-    user.setName(name);
-    user.setAge(age);
-    user.setBio(bio);
-    user.setAvatar(avatar)
+    userProfile.setName(name);
+    userProfile.setAge(age);
+    userProfile.setBio(bio);
+    userProfile.setAvatar(avatar)
 
-    renderUser(user.name, user.age, user.bio, user.avatar);
+    renderUser(userProfile.name, userProfile.age, userProfile.bio, userProfile.avatar);
 
-    openOrCloseModal("none");
+    openOrCloseModal(false);
 
 };
 
@@ -130,7 +130,8 @@ function renderLikedDogs() {
         likedProfiles.filter(profile => {
             likedProfilesEl.innerHTML += `
             <div class="liked-profile-header">
-                <img src="${profile.avatar}" class="liked-profile-avatar">
+                <img src="./images/${profile.avatar}" class="liked-profile-avatar"
+                  onerror="this.src='./images/blank-profile.png'">
                 <p>${profile.name}</p>
             </div>
             `
@@ -187,10 +188,10 @@ function renderUser(name, age, bio, avatar) {
     document.getElementById("bio").value = bio;
     document.getElementById("bio").value = bio;
     document.getElementById("avatar-loc").value = avatar;
-    document.getElementById("avatar").src = avatar;
-    document.getElementById("profile-btn").src = avatar;
+    document.getElementById("avatar").src = `./images/${avatar}`;
+    document.getElementById("profile-btn").src = `./images/${avatar}`;
 };
 
 renderDogs(currentDog);
 
-renderUser(user.name, user.age, user.bio, user.avatar);
+renderUser(userProfile.name, userProfile.age, userProfile.bio, userProfile.avatar);

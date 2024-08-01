@@ -44,7 +44,6 @@ body {
     min-width: 350px;
     min-height: 900px;
     margin: 0 auto 1.5em;
-    /* background: linear-gradient(180deg, var(--white-color) 0%,  100%); */
     background-color: var(--grey-color);
     border-radius: 10px;
     padding: 0.5em;
@@ -71,7 +70,7 @@ input, textarea {
 .header-container {
     display: flex;
     justify-content: space-between;
-    padding: 1.25em;
+    padding: 0.75em 1em;
 }
 
 .app-icons,
@@ -128,14 +127,14 @@ input, textarea {
 
 .swipe-button-container {
     text-align: center;
-    margin: 1.5em 0;
+    margin: 1em 0;
 }
 
 .swipe-btn {
     background-color: var(--white-color);
     border-radius: 50%;
     border: 0;
-    padding: 1.5em;
+    padding: 1.25em;
 }
 
 /* For a space between the swipe buttons. Don't want it on both as that
@@ -165,6 +164,7 @@ input, textarea {
 .heart-icon {
     /* Needed so it triggers the onclick of the parent (add button) */
     pointer-events: none;
+    vertical-align: middle;
 }
 
 /* Main app styles - End */
@@ -243,8 +243,6 @@ label {
 .modal-close-btn {
   font-size: 22px;
   font-weight: bold;
-  /* background-color: transparent; */
-  /* border: 1px solid transparent; */
   color: red;
 }
 
